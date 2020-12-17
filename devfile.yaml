@@ -2,13 +2,13 @@ apiVersion: 1.0.0
 metadata:
   name: che-demo-anaconda-
 components:
-  - id: ms-python/python/latest
+  - reference: https://gist.githubusercontent.com/cccs-eric/d639c33068166ca7d2a54eadc833bd59/raw/6f0fcae2eaa42b3dc9a14d6e850563256e3c2bf2/plugin.yaml
     memoryLimit: 512Mi
     type: chePlugin
   - mountSources: true
     memoryLimit: 512Mi
     type: dockerimage
-    image: 'cranalyticalplatform.azurecr.io/cccs/che-sidecar-conda:3.8.5-4.9.2'
+    image: 'quay.io/eclipse/che-python-3.7:7.22.1'
     alias: conda
 commands:
   - name: run
