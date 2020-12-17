@@ -9,7 +9,7 @@ components:
     memoryLimit: 512Mi
     type: dockerimage
     image: 'continuumio/anaconda3:2020.11'
-    alias: python
+    alias: conda
 commands:
   - name: run
     actions:
