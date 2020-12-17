@@ -16,10 +16,10 @@ commands:
       - workdir: '${CHE_PROJECTS_ROOT}/che-demo-project-anaconda'
         type: exec
         command: '. ${CHE_PROJECTS_ROOT}/.venv/bin/activate &&  python main.py'
-        component: python
+        component: conda
   - name: set up venv
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/'
         type: exec
         command: python -m venv /projects/.venv
-        component: python
+        component: conda
