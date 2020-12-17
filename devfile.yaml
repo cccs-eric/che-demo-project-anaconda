@@ -8,7 +8,7 @@ components:
   - mountSources: true
     memoryLimit: 512Mi
     type: dockerimage
-    image: 'quay.io/eclipse/che-python-3.7:7.22.1'
+    image: 'cranalyticalplatform.azurecr.io/cccs/che-conda:3.8.5-4.9.2'
     alias: conda
 commands:
   - name: run
