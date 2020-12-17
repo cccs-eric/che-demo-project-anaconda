@@ -8,7 +8,7 @@ components:
   - mountSources: true
     memoryLimit: 512Mi
     type: dockerimage
-    image: 'continuumio/anaconda3:2020.11'
+    image: 'cranalyticalplatform.azurecr.io/cccs/che-sidecar-conda:3.8.5-4.9.2'
     alias: conda
 commands:
   - name: run
