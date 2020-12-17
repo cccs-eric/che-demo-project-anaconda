@@ -1,0 +1,25 @@
+apiVersion: 1.0.0
+metadata:
+  name: che-demo-anaconda-
+components:
+  - id: ms-python/python/latest
+    memoryLimit: 512Mi
+    type: chePlugin
+  - mountSources: true
+    memoryLimit: 512Mi
+    type: dockerimage
+    image: 'continuumio/anaconda3:2020.11'
+    alias: conda
+commands:
+  - name: run
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/che-demo-project-anaconda'
+        type: exec
+        command: '. ${CHE_PROJECTS_ROOT}/.venv/bin/activate &&  python main.py'
+        component: python
+  - name: set up venv
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/'
+        type: exec
+        command: python -m venv /projects/.venv
+        component: python
