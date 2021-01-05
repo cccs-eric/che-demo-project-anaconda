@@ -1,4 +1,4 @@
 name: demo-env
 dependencies:
   - numpy
-  - pandas
+  - whatlies
