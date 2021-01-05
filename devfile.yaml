@@ -17,9 +17,9 @@ commands:
         type: exec
         command: '. ${CHE_PROJECTS_ROOT}/.venv/bin/activate &&  python main.py'
         component: conda
-  - name: set up venv
+  - name: Setup conda env
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/'
         type: exec
-        command: python -m venv /projects/.venv
+        command: conda env create -f environment.yml
         component: conda
