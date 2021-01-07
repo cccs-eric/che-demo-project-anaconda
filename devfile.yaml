@@ -34,3 +34,4 @@ commands:
       - workdir: '${CHE_PROJECTS_ROOT}/'
         type: exec
         command: conda deactivate && conda remove --name demo-env --all --yes
+        component: conda
