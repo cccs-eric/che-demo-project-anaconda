@@ -17,11 +17,17 @@ commands:
         type: exec
         command: 'conda activate demo-env && python main.py'
         component: conda
-  - name: Setup conda env
+  - name: Setup conda
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/'
         type: exec
-        command: conda init bash && conda env create --file environment.yml
+        command: conda config --add pkgs_dirs ${CHE_PROJECTS_ROOT}/pkgs && conda init bash
+        component: conda
+  - name: Create conda env
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/'
+        type: exec
+        command: conda env create --file environment.yml
         component: conda
   - name: Remove conda env
     actions:
