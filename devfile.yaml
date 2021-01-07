@@ -29,9 +29,9 @@ commands:
         type: exec
         command: conda env create --file environment.yml
         component: conda
-#  - name: Remove conda env
-#    actions:
-#      - workdir: '${CHE_PROJECTS_ROOT}/'
-#        type: exec
-#        command: conda deactivate && conda remove --name demo-env --all --yes
-#        component: conda
+  - name: Remove conda env
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/'
+        type: exec
+        command: 'conda deactivate && conda remove --name demo-env --all --yes'
+        component: conda

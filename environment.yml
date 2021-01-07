@@ -2,5 +2,5 @@ name: demo-env
 dependencies:
   - pip
   - numpy
-#  - pip:
-#    - whatlies
+  - pip:
+    - whatlies
