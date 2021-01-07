@@ -11,10 +11,12 @@ components:
     image: 'cranalyticalplatform.azurecr.io/cccs/che-conda:3.8.5-4.9.2'
     volumes:
       - name: che-conda-shared-envs
-        containerPath: /home/user/shared-conda-envs
+        containerPath: /shared-conda-envs
     env:
       - name: SHARED_CONDA_ENVS
-        value: /home/user/shared-conda-envs
+        value: /shared-conda-envs
+      - name: CONDA_PKGS_DIRS
+        value: ${SHARED_CONDA_ENVS}/pkgs
     alias: conda
 commands:
   - name: run
