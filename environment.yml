@@ -1,5 +1,6 @@
 name: demo-env
 dependencies:
+  - python=3.8
   - pip
   - numpy
   - pip:

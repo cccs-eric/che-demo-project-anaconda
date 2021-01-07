@@ -9,6 +9,9 @@ components:
     memoryLimit: 4Gi
     type: dockerimage
     image: 'cranalyticalplatform.azurecr.io/cccs/che-conda:3.8.5-4.9.2'
+    volumes:
+      - name: che-conda-shared-envs
+        containerPath: /home/user/shared-conda-envs
     alias: conda
 commands:
   - name: run
