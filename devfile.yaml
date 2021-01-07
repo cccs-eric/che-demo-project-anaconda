@@ -12,6 +12,9 @@ components:
     volumes:
       - name: che-conda-shared-envs
         containerPath: /home/user/shared-conda-envs
+    env:
+      - name: SHARED_CONDA_ENVS
+        value: /home/user/shared-conda-envs
     alias: conda
 commands:
   - name: run
@@ -24,7 +27,7 @@ commands:
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/'
         type: exec
-        command: conda config --add pkgs_dirs ${CHE_PROJECTS_ROOT}/pkgs
+        command: conda config --add pkgs_dirs ${SHARED_CONDA_ENVS}/pkgs
         component: conda
   - name: Create conda env
     actions:
