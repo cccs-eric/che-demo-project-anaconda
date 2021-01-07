@@ -6,14 +6,14 @@ components:
     memoryLimit: 512Mi
     type: chePlugin
   - mountSources: true
-    memoryLimit: 512Mi
+    memoryLimit: 2Gi
     type: dockerimage
     image: 'cranalyticalplatform.azurecr.io/cccs/che-conda:3.8.5-4.9.2'
     alias: conda
 commands:
   - name: run
     actions:
-      - workdir: '${CHE_PROJECTS_ROOT}/che-demo-project-anaconda'
+      - workdir: '${CHE_PROJECTS_ROOT}/che-demo-project-anaconda/'
         type: exec
         command: 'conda activate demo-env && python main.py'
         component: conda
@@ -21,11 +21,11 @@ commands:
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/'
         type: exec
-        command: conda config --add pkgs_dirs ${CHE_PROJECTS_ROOT}/pkgs && conda init bash
+        command: conda config --add pkgs_dirs ${CHE_PROJECTS_ROOT}/pkgs
         component: conda
   - name: Create conda env
     actions:
-      - workdir: '${CHE_PROJECTS_ROOT}/'
+      - workdir: '${CHE_PROJECTS_ROOT}/che-demo-project-anaconda/'
         type: exec
         command: conda env create --file environment.yml
         component: conda
