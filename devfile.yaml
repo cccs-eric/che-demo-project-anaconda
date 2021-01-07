@@ -6,7 +6,7 @@ components:
     memoryLimit: 512Mi
     type: chePlugin
   - mountSources: true
-    memoryLimit: 2Gi
+    memoryLimit: 4Gi
     type: dockerimage
     image: 'cranalyticalplatform.azurecr.io/cccs/che-conda:3.8.5-4.9.2'
     alias: conda

@@ -4,3 +4,5 @@ dependencies:
   - numpy
   - pip:
     - whatlies
+    - whatlies[tfhub]
+    - human-learn
