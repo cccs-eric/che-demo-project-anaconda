@@ -16,30 +16,30 @@ components:
       - name: SHARED_CONDA_ENVS
         value: /shared-conda-envs
       - name: CONDA_PKGS_DIRS
-        value: ${SHARED_CONDA_ENVS}/pkgs
+        value: /shared-conda-envs/pkgs
     alias: conda
 commands:
   - name: run
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/che-demo-project-anaconda/'
         type: exec
-        command: 'conda activate demo-env && python main.py'
+        command: 'conda activate ${CHE_PROJECTS_ROOT}/envs/human-learn && python main.py'
         component: conda
-  - name: Setup conda
-    actions:
-      - workdir: '${CHE_PROJECTS_ROOT}/'
-        type: exec
-        command: conda config --add pkgs_dirs ${SHARED_CONDA_ENVS}/pkgs
-        component: conda
+#  - name: Setup conda
+#    actions:
+#      - workdir: '${CHE_PROJECTS_ROOT}/'
+#        type: exec
+#        command: conda config --add pkgs_dirs ${SHARED_CONDA_ENVS}/pkgs
+#        component: conda
   - name: Create conda env
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/che-demo-project-anaconda/'
         type: exec
-        command: conda env create --file environment.yml
+        command: conda env create --prefix ${CHE_PROJECTS_ROOT}/envs/human-learn --file environment.yml
         component: conda
   - name: Remove conda env
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/'
         type: exec
-        command: 'conda deactivate && conda remove --name demo-env --all --yes'
+        command: 'conda deactivate && conda remove ${CHE_PROJECTS_ROOT}/envs/human-learn --all --yes'
         component: conda
