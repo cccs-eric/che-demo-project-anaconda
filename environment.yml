@@ -1,4 +1,4 @@
-name: demo-env
+name: human-learn
 dependencies:
   - python=3.8
   - pip
