@@ -2,9 +2,12 @@ apiVersion: 1.0.0
 metadata:
   name: che-demo-anaconda-
 components:
-  - reference: https://gist.githubusercontent.com/cccs-eric/d639c33068166ca7d2a54eadc833bd59/raw/6f0fcae2eaa42b3dc9a14d6e850563256e3c2bf2/plugin.yaml
+  - id: ms-python/python/latest
     memoryLimit: 512Mi
     type: chePlugin
+#  - reference: https://gist.githubusercontent.com/cccs-eric/d639c33068166ca7d2a54eadc833bd59/raw/6f0fcae2eaa42b3dc9a14d6e850563256e3c2bf2/plugin.yaml
+#    memoryLimit: 512Mi
+#    type: chePlugin
   - mountSources: true
     memoryLimit: 4Gi
     type: dockerimage
